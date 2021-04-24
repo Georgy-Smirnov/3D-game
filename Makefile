@@ -1,3 +1,16 @@
+##	START_MAKEFILE	##
+
+#===============================>COLORS<===============================#
+
+_RED		=	\e[31m
+_YELLOW		=	\e[33m
+_GREEN		=	\e[32m
+_END		=	\e[0m
+
+# ===================================================================== #
+
+#===============================>FILES<===============================#
+
 SRCS		=	main.c\
 				./srcs/parsing_map/add.c\
 				./srcs/parsing_map/check_str_in_list.c\
@@ -14,36 +27,69 @@ SRCS		=	main.c\
 				./srcs/raycasting/start_raycasting.c\
 				./srcs/raycasting/add.c\
 
+# ===================================================================== #
+
+#============================>COMPILATIONS<============================#
+
+GCC			= gcc
+
+CFLAGS		= -Wall -Werror -Wextra
+
+FRAMES		= -framework OpenGL -framework AppKit
+
+#===============================>DELETE<===============================#
+
+RM			= rm -f
+
 OBJS		= ${SRCS:.c=.o}
 
-NAME		=cub3D
+#============================>HEAD_LIB_PATH<============================#
 
-.c.o:	
-			gcc -g -Wall -Werror -Wextra -I ./srcs/parsing_map/pars_head.h -c $< -o ${<:.c=.o}
+DIR_HEAD	= ./includes
 
-${NAME}:	${OBJS}
-			${MAKE} -C ./srcs/libft
-			${MAKE} -C ./srcs/mlx
-			gcc -o ${NAME} ./srcs/libft/Libft.a ./srcs/mlx/libmlx.a ${SRCS} -framework OpenGL -framework AppKit
+DIR_LIB		= ./library
+
+#============================>LIB_FILE<============================#
+
+LIBFT		= -lft
+
+LIBMLX		= -lmlx
+
+#==========================>COMPILING_SOURCE<==========================#
+
+OBJS		=	${SRCS:%.c=%.o}
+
+NAME		= cub3D
+
+#==========================>COMPILING_RULES<==========================#
 
 all:		${NAME}
 
+${NAME}:	${OBJS}
+			@${GCC} -o ${NAME} ${OBJS} -L${DIR_LIB} ${LIBFT} ${LIBMLX} ${FRAMES}
+			@printf "\033[2K\r${_GREEN} Game install: '${NAME}'. ${_END}✅\n"
+
+
+%.o:		%.c
+			@${GCC} ${CFLAGS} -I ${DIR_HEAD} -c $< -o $@
+			@printf "\033[2K\r${_YELLOW} Compilling $< ⌛${_END}\n"
+
+#==========================>NORM_RULES<===========================#
+
 norm:		
-			norminette ./srcs/libft/*.c
 			norminette ./srcs/parsing_map/*.c
 			norminette ./srcs/raycasting/*.c
-			norminette ./srcs/parsing_map/*.h
-			norminette ./srcs/raycasting/*.h
 			norminette ./main.c
 
+#==========================>CLEAN_RULES<==========================#
+
 clean:
-			${MAKE} clean -C ./srcs/libft
-			${MAKE} clean -C ./srcs/mlx
-			rm -f ${OBJS}
+			@${RM} ${OBJS}
+			@printf "\033[2K\r${_RED} '".o"' has been deleted. ${_END}🗑️\n"
 
 fclean:		clean
-			${MAKE} fclean -C ./srcs/libft
-			rm -f ${NAME}
+			@${RM} ${NAME}
+			@printf "\033[2K\r${_RED} '"${NAME}"' has been deleted. ${_END}🗑️\n"
 
 re:			fclean all
 

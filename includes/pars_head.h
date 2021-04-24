@@ -13,7 +13,7 @@
 #ifndef PARS_HEAD_H
 # define PARS_HEAD_H
 
-# include "../libft/libft.h"
+# include "libft.h"
 
 typedef struct	s_sprite
 {

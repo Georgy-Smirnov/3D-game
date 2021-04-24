@@ -19,38 +19,38 @@
 
 int		key_hook(int keycode, t_data *img)
 {
-	if (keycode == 53)
+	if (keycode == KC_ESC)
 		my_exit(img);
-	if (keycode == 1)
+	if (keycode == KC_S)
 		img->move_f.press_s = 0;
-	if (keycode == 0)
+	if (keycode == KC_A)
 		img->move_f.press_a = 0;
-	if (keycode == 2)
+	if (keycode == KC_D)
 		img->move_f.press_d = 0;
-	if (keycode == 13)
+	if (keycode == KC_W)
 		img->move_f.press_w = 0;
-	if (keycode == 123)
+	if (keycode == KC_LEFT)
 		img->move_f.press_left = 0;
-	if (keycode == 124)
+	if (keycode == KC_RIGHT)
 		img->move_f.press_right = 0;
 	return (1);
 }
 
 int		key_press(int keycode, t_data *img)
 {
-	if (keycode == 53)
+	if (keycode == KC_ESC)
 		my_exit(img);
-	if (keycode == 1)
+	if (keycode == KC_S)
 		img->move_f.press_s = 1;
-	if (keycode == 0)
+	if (keycode == KC_A)
 		img->move_f.press_a = 1;
-	if (keycode == 2)
+	if (keycode == KC_D)
 		img->move_f.press_d = 1;
-	if (keycode == 13)
+	if (keycode == KC_W)
 		img->move_f.press_w = 1;
-	if (keycode == 123)
+	if (keycode == KC_LEFT)
 		img->move_f.press_left = 1;
-	if (keycode == 124)
+	if (keycode == KC_RIGHT)
 		img->move_f.press_right = 1;
 	return (1);
 }

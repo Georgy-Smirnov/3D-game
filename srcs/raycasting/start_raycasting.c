@@ -6,7 +6,7 @@
 /*   By: kjaco <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 19:46:20 by kjaco             #+#    #+#             */
-/*   Updated: 2021/03/21 19:46:23 by kjaco            ###   ########.fr       */
+/*   Updated: 2021/04/24 10:58:32 by kjaco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	put_dir_plane(t_data *data, char c)
 
 int		put_info_in_data(t_all_info *info, t_data *data)
 {
-	mlx_get_screen_size(&data->win.width, &data->win.hight);
+	mlx_get_screen_size(data->win.mlx, &data->win.width, &data->win.hight);
 	return_struct(data);
 	if (data->win.width > info->width)
 		data->win.width = info->width;

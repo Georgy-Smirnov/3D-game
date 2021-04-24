@@ -13,9 +13,23 @@
 #ifndef RCAST_H
 # define RCAST_H
 
-# include "../mlx/mlx.h"
-# include "../parsing_map/pars_head.h"
+# include "mlx.h"
+# include "pars_head.h"
 # include <math.h>
+
+/*
+** Дефолтные настройки игры.
+** Кейкоды для клавиатуры (под MacOS).
+** Скорость передвижения, скорость поворота и ширина обзора. 
+*/
+
+# define KC_ESC 53
+# define KC_W 13
+# define KC_A 0
+# define KC_D 2
+# define KC_S 1
+# define KC_LEFT 123
+# define KC_RIGHT 124
 
 # define MS 0.08
 # define TS 0.05
