@@ -55,6 +55,10 @@ LIBFT		= -lft
 
 LIBMLX		= -lmlx
 
+#============================>LIB_FILE<============================#
+
+MAP			= map.cub
+
 #==========================>COMPILING_SOURCE<==========================#
 
 OBJS		=	${SRCS:%.c=%.o}
@@ -73,6 +77,9 @@ ${NAME}:	${OBJS}
 %.o:		%.c
 			@${GCC} ${CFLAGS} -I ${DIR_HEAD} -c $< -o $@
 			@printf "\033[2K\r${_YELLOW} Compilling $< ⌛${_END}\n"
+
+start:		${NAME}
+			@./${NAME} ${MAP}
 
 #==========================>NORM_RULES<===========================#
 
