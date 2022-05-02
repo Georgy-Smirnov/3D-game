@@ -4,6 +4,10 @@ This project is First-person 3D representation of a maze using <a href="https://
 
 In this project use MiniLibX, a simplified version of the Xlib. It can only run in MacOS.
 
+<p align="center">
+  <img src="srcs/texture/screenshot.png" title="Screenshot"/>
+</p>
+
 ### For start
 
 Using ``make start`` for start with standart ``map.cube``.
